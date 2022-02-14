@@ -10,7 +10,7 @@ Creating a password generator application that an employee can use to generate a
 
 **Live Site:**
 
-Head over to [LINK GOES HERE] to view the page live!
+Head over to https://cwarmbrunn.github.io/password-generator/ to view the page live!
 
 ---
 
