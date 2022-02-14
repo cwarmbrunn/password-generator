@@ -1,16 +1,13 @@
 // Assignment code here
 
 // Password Length Criteria //
-var promptLength = window.prompt(
-  " Enter a password length range between 8 and 128 characters."
-);
+var promptLength = 0;
+window.prompt(" Enter a password length range between 8 and 128 characters.");
 
-if (
-  promptLength === "" ||
-  promptLength === null ||
-  promptLength < 8 ||
-  promptLength > 128
-) {
+while (promptLength && (promptLength < 8 || promptLength > 128))
+  promptLength = parseInt(promptLength);
+
+if (!length || length < 8 || length > 128) {
   window.alert("You need to provide a valid input! Please try again!");
 }
 
