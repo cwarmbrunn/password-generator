@@ -8,6 +8,8 @@ Password Generator
 
 Creating a password generator application that an employee can use to generate a random password matching selected criteria.
 
+---
+
 **Live Site:**
 
 Head over to https://cwarmbrunn.github.io/password-generator/ to view the page live!
