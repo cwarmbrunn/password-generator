@@ -1,4 +1,15 @@
-// Assignment code here
+// Generate Password Button to Trigger Prompts
+
+function generatePassword() {
+  // Password Criterion
+  var passwordNums = "0123456789";
+
+  var passwordUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  var passwordLower = "abcdefghijklmnopqrstuvwxyz";
+
+  var passwordSpecial = "#@!%&()/";
+}
 
 // Password Length Criteria Start
 var promptLength = 0;
@@ -48,28 +59,31 @@ while (!promptType || promptType < 1 || promptType > 4) {
       "You need to provide a numeric selection between 1 and 4 - please try again!"
     );
   }
+
+  // Password Character Type Validation Start
+  switch (promptType) {
+    case 1:
+      window.confirm("Do you want lowercase characters in your password?");
+      window.alert("You've selected lowercase characters for your password.");
+      break;
+    case 2:
+      window.confirm("Do you want uppercase characters in your password?");
+      window.alert("You've selected uppercase characters for your password.");
+      break;
+    case 3:
+      window.confirm("Do you want numbers in your password?");
+      window.alert("You've selected numbers for your password.");
+      break;
+    case 4:
+      window.confirm("Do you want special characters in your password?");
+      window.alert("You've selected special characters for your password.");
+  }
 }
-
-// Password Character Type Validation Start
-var confirm = window.confirm("Confirm your selection of ");
-
-// Need to figure out way to generate log of selection (e.g. Confirm your selection of 'special characters'.)
 
 // Password Character Type Validation End
 
-// Need to figure out how to call Generate Button
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-
-// Generate password using the following letters/selections - not sure if this is on the right track.
-var passwordNums = "0123456789";
-
-var passwordUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-var passwordLower = "abcdefghijklmnopqrstuvwxyz";
-
-var passwordSpecial = "#@!%&()/";
 
 // Write password to the #password input
 function writePassword() {
@@ -87,4 +101,6 @@ function copyPassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+// Added Copy Button for easier user interface/experience.
 copyBtn.addEventListener("click", copyPassword);
