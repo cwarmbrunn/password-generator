@@ -8,7 +8,7 @@ function generatePassword() {
 
   var passwordLower = "abcdefghijklmnopqrstuvwxyz";
 
-  var passwordSpecial = "#@!%&()/";
+  var passwordSpecial = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~ ";
 
   // Password Length Criteria Start
   var promptLength = 0;
@@ -46,40 +46,74 @@ function generatePassword() {
   var promptType = 0;
 
   // Enter the conditional for promptType response - cannot be blank or null, options are lowercase, uppercase, numeric, and/or special characters
-  while (!promptType || promptType < 1 || promptType > 4) {
-    promptType = parseInt(
-      // Ask user to select character types
-      window.prompt(
-        "Select character types to include in the password. 1 is for lowercase, 2 is for uppercase, 3 is for numeric, and 4 is for special characters."
-      )
+  while (!promptType) {
+    // Ask user to select character types
+
+    // Question #1 - Lowercase Characters Start
+    var confirmLower = window.confirm(
+      "Do you want lowercase characters in your password?"
     );
 
-    // If invalid response is entered - trigger a warning and ask for re-entry.
-    if (!promptType || promptType < 1 || promptType > 4) {
+    // If yes, grant lowercase letter confirmation
+    if (confirmLower) {
+      window.alert("You selected lowercase characters for your password. ");
+    }
+    // If no, alert denial of lowercase letter confirmation
+    if (!confirmLower) {
       window.alert(
-        "You need to provide a numeric selection between 1 and 4 - please try again!"
+        "You did not select lowercase characters for your password."
       );
     }
+    // Question #1 - Lowercase Characters End
 
-    // Password Character Type Validation Start
-    // MISSING: Way to attribute case selections to password criterion above.
-    switch (promptType) {
-      case 1:
-        window.confirm("Do you want lowercase characters in your password?");
-        window.alert("You've selected lowercase characters for your password.");
-        break;
-      case 2:
-        window.confirm("Do you want uppercase characters in your password?");
-        window.alert("You've selected uppercase characters for your password.");
-        break;
-      case 3:
-        window.confirm("Do you want numbers in your password?");
-        window.alert("You've selected numbers for your password.");
-        break;
-      case 4:
-        window.confirm("Do you want special characters in your password?");
-        window.alert("You've selected special characters for your password.");
+    // Question #2 - Uppercase Characters Start
+    var confirmUpper = window.confirm(
+      "Do you want uppercase characters in your password?"
+    );
+    // If yes, grant uppercase letter confirmation
+    if (confirmUpper) {
+      window.alert("You selected uppercase characters in your password.");
     }
+    // If no, alert denial of lowercase letter confirmation
+    if (!confirmUpper) {
+      window.alert("You did not select uppercase characters in your password.");
+    }
+
+    // Question #2 - Uppercase Characters End
+
+    // Question #3 - Numbers Start
+    var confirmNumbers = window.confirm(
+      "Do you want numbers in your password?"
+    );
+
+    // If yes, grant number letter confirmation
+    if (confirmNumbers) {
+      window.alert("You selected numbers in your password.");
+    }
+
+    // If no, alert denial of number confirmation
+    if (!confirmNumbers) {
+      window.alert("You did not select numbers in your password.");
+    }
+
+    // Question #3 - Numbers End
+
+    // Question #4 - Special Characters Start
+
+    var confirmCharacters = window.confirm(
+      "Do you want special characters in your password?"
+    );
+
+    // If yes, grant special character confirmation
+    if (confirmCharacters) {
+      window.alert("You selected special characters in your password.");
+    }
+
+    // If no, alert denial of special character confirmation
+    if (!confirmCharacters) {
+      window.alert("You did not select special characters in your password.");
+    }
+    break;
   }
 
   // Password Character Type Validation End
@@ -107,5 +141,6 @@ function generatePassword() {
   generateBtn.addEventListener("click", writePassword);
 
   // Added Copy Button for easier user interface/experience.
-  copyBtn.addEventListener("click", copyPassword);
+  /*
+  copyBtn.addEventListener("click", copyPassword); */
 }
