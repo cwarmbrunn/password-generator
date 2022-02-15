@@ -62,6 +62,7 @@ function generatePassword() {
     }
 
     // Password Character Type Validation Start
+    // MISSING: Way to attribute case selections to password criterion above.
     switch (promptType) {
       case 1:
         window.confirm("Do you want lowercase characters in your password?");
@@ -80,28 +81,31 @@ function generatePassword() {
         window.alert("You've selected special characters for your password.");
     }
   }
+
+  // Password Character Type Validation End
+
+  // Generate Password Based on User Input
+
+  // Get references to the #generate element
+  var generateBtn = document.querySelector("#generate");
+
+  // Write password to the #password input
+  function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+  }
+
+  function copyPassword() {
+    //Function Content to Copy Password Here
+    var password = copyPassword();
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+  }
+
+  // Add event listener to generate button
+  generateBtn.addEventListener("click", writePassword);
+
+  // Added Copy Button for easier user interface/experience.
+  copyBtn.addEventListener("click", copyPassword);
 }
-// Password Character Type Validation End
-
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
-}
-
-function copyPassword() {
-  //Function Content to Copy Password Here
-  var password = copyPassword();
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-// Added Copy Button for easier user interface/experience.
-copyBtn.addEventListener("click", copyPassword);
