@@ -110,6 +110,15 @@ function generatePassword() {
   // If no, alert denial of special character confirmation
   if (!confirmCharacters) {
     window.alert("You did not select special characters in your password.");
+
+  // NEED TO REWORK: Create condition to re-trigger ask for at least ONE condition for password.
+  } else if (
+    !confirmUpper &&
+    !confirmLower &&
+    !confirmNumbers &&
+    !confirmCharacters
+  ) {
+    window.alert("You must choose at least one criteria for your password.");
   }
 
   // Randomizer for Password
