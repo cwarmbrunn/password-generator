@@ -6,7 +6,7 @@ var generateBtn = document.querySelector("#generate");
 var passwordNums = "0123456789";
 var passwordUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var passwordLower = "abcdefghijklmnopqrstuvwxyz";
-var passwordSpecial = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~ ";
+var passwordSpecial = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 
 let promptLength = "";
 
@@ -27,12 +27,7 @@ function generatePassword() {
 
   // Enter the conditional for promptLength response - cannot be blank/null, at LEAST 8 characters and no more than 128 characters.
   promptLength = getLength();
-  if (
-    !isNaN(promptLength) ||
-    !promptLength ||
-    promptLength < 8 ||
-    promptLength > 128
-  ) {
+  if (!promptLength || promptLength < 8 || promptLength > 128) {
     // If invalid response is entered - trigger a warning and ask for re-entry.
 
     if (
@@ -129,10 +124,7 @@ function generatePassword() {
 
     // Check Answers Function to inform user they need to select at least one criteria.
   }
-
-  if (
-    checkAnswers(confirmUpper, confirmLower, confirmNumbers, confirmCharacters)
-  ) {
+  if (!confirmUpper && !confirmLower && !confirmNumbers && !confirmCharacters) {
     window.alert("You must choose at least one criteria for your password.");
     generatePassword();
   }
@@ -141,13 +133,10 @@ function generatePassword() {
   for (var i = 0; i < promptLength; i++) {
     password =
       password + passwordChar[Math.floor(Math.random() * passwordChar.length)];
+    console.log("made it through safely");
   }
   console.log(password);
   return password;
-}
-
-function checkAnswers(confirmUp, confirmLow, confirmNum, confirmChar) {
-  return !confirmUp && !confirmLow && !confirmNum && !confirmChar;
 }
 
 function writePassword() {
