@@ -45,6 +45,8 @@ function generatePassword() {
 
   // Password Character Type Start
 
+  // Need to find way to trigger questions being asked again/forcing at least one yes for the generator.
+
   // Question #1 - Lowercase Characters Start
   var confirmLower = window.confirm(
     "Do you want lowercase characters in your password?"
@@ -109,16 +111,20 @@ function generatePassword() {
   if (!confirmCharacters) {
     window.alert("You did not select special characters in your password.");
   }
-// Randomizer for Password
-  for (var i = 0; i < promptLength; i++) {
-    password = passwordChar[Math.floor(Math.random() * passwordChar.length)];
-  }
 
-  function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
-    passwordText.value = password;
+  // Randomizer for Password
+  for (var i = 0; i < promptLength; i++) {
+    password =
+      password + passwordChar[Math.floor(Math.random() * passwordChar.length)];
+    console.log(password);
   }
+  return password;
 }
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
