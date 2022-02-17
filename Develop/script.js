@@ -1,15 +1,15 @@
 // Generate Password Button to Trigger Prompts
-
 var generateBtn = document.querySelector("#generate");
 
-// Global Scope Variables - Password Keys
-var passwordNums = "0123456789";
-var passwordUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+// Global Scope Variables - Password Character Options
 var passwordLower = "abcdefghijklmnopqrstuvwxyz";
+var passwordUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var passwordNums = "0123456789";
 var passwordSpecial = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 
 let promptLength = "";
 
+// Function to prompt user to input password character length
 function getLength() {
   var localLength = window.prompt(
     "Enter a password length range between 8 and 128 characters."
@@ -17,13 +17,12 @@ function getLength() {
   return parseInt(localLength);
 }
 
-// Password Criterion
+// Password Generation Begin
 function generatePassword() {
-  debugger;
   var password = "";
   var passwordChar = "";
 
-  // Password Length Criteria Start
+  // Password Length Prompt Starts
 
   // Enter the conditional for promptLength response - cannot be blank/null, at LEAST 8 characters and no more than 128 characters.
   promptLength = getLength();
@@ -33,7 +32,7 @@ function generatePassword() {
     promptLength < 8 ||
     promptLength > 128
   ) {
-    // If invalid response is entered - trigger a warning and ask for re-entry.
+    // If invalid response is entered - trigger a warning and return null to begin password generation again
 
     if (
       isNaN(promptLength) ||
@@ -44,7 +43,7 @@ function generatePassword() {
       window.alert(
         "You need to provide a password length range between 8 and 128 characters - please try again!"
       );
-      generatePassword();
+      getLength();
     }
   }
 
@@ -59,8 +58,6 @@ function generatePassword() {
   // Password Length Criteria Ends
 
   // Password Character Type Start
-
-  // Need to find way to trigger questions being asked again/forcing at least one yes for the generator.
 
   // Question #1 - Lowercase Characters Start
 
@@ -127,14 +124,19 @@ function generatePassword() {
   if (!confirmCharacters) {
     window.alert("You did not select special characters in your password.");
 
-    // Check Answers Function to inform user they need to select at least one criteria.
+    // Check us Function to inform user they need to select at least one criteria.
   }
-
   if (
-    checkAnswers(confirmUpper, confirmLower, confirmNumbers, confirmCharacters)
+    confirmUpper === false &&
+    confirmCharacters === false &&
+    confirmLower === false &&
+    confirmCharacters === false
   ) {
-    window.alert("You must choose at least one criteria for your password.");
-    generatePassword();
+    window.alert(
+      "You must choose at least one password character type for your password."
+    );
+
+    return null;
   }
 
   // Randomizer for Password
@@ -146,10 +148,7 @@ function generatePassword() {
   return password;
 }
 
-function checkAnswers(confirmUp, confirmLow, confirmNum, confirmChar) {
-  return !confirmUp && !confirmLow && !confirmNum && !confirmChar;
-}
-
+// Function to write password
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
