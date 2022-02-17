@@ -28,7 +28,7 @@ function generatePassword() {
   promptLength = getLength();
   if (
     !isNaN(promptLength) ||
-    !promptLength ||
+    promptLength ||
     promptLength < 8 ||
     promptLength > 128
   ) {
