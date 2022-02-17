@@ -43,7 +43,7 @@ function generatePassword() {
       window.alert(
         "You need to provide a password length range between 8 and 128 characters - please try again!"
       );
-      getLength();
+      return null;
     }
   }
 
@@ -68,12 +68,8 @@ function generatePassword() {
   // If yes, grant lowercase letter confirmation
   if (confirmLower) {
     passwordChar += passwordLower;
-    window.alert("You selected lowercase characters for your password.");
   }
-  // If no, alert denial of lowercase letter confirmation
-  if (!confirmLower) {
-    window.alert("You did not select lowercase characters for your password.");
-  }
+
   // Question #1 - Lowercase Characters End
 
   // Question #2 - Uppercase Characters Start
@@ -83,11 +79,7 @@ function generatePassword() {
   // If yes, grant uppercase letter confirmation
   if (confirmUpper) {
     passwordChar += passwordUpper;
-    window.alert("You selected uppercase characters in your password.");
-  }
-  // If no, alert denial of lowercase letter confirmation
-  if (!confirmUpper) {
-    window.alert("You did not select uppercase characters in your password.");
+  } else {
   }
 
   // Question #2 - Uppercase Characters End
@@ -98,12 +90,7 @@ function generatePassword() {
   // If yes, grant number letter confirmation
   if (confirmNumbers) {
     passwordChar += passwordNums;
-    window.alert("You selected numbers in your password.");
-  }
-
-  // If no, alert denial of number confirmation
-  if (!confirmNumbers) {
-    window.alert("You did not select numbers in your password.");
+  } else {
   }
 
   // Question #3 - Numbers End
@@ -117,15 +104,9 @@ function generatePassword() {
   // If yes, grant special character confirmation
   if (confirmCharacters) {
     passwordChar += passwordSpecial;
-    window.alert("You selected special characters in your password.");
+  } else {
   }
 
-  // If no, alert denial of special character confirmation
-  if (!confirmCharacters) {
-    window.alert("You did not select special characters in your password.");
-
-    // Check us Function to inform user they need to select at least one criteria.
-  }
   if (
     confirmUpper === false &&
     confirmCharacters === false &&
