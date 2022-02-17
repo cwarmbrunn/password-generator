@@ -1,96 +1,12 @@
 // Generate Password Button to Trigger Prompts
+
 var generateBtn = document.querySelector("#generate");
 
-// Global Scope Variables - Password Selection Variables
-var passwordLower = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-];
-var passwordNums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var passwordUpper = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
-var passwordSpecial = [
-  "!",
-  "#",
-  '"',
-  "#",
-  "$",
-  "%",
-  "'",
-  "(",
-  ")",
-  "*",
-  "+",
-  ",",
-  "-",
-  ".",
-  "/",
-  "//",
-  ":",
-  ";",
-  "<",
-  ">",
-  "=",
-  "?",
-  "@",
-  "[",
-  "]",
-  "^",
-  "_",
-  "`",
-];
-
 // Global Scope Variables - Password Keys
+var passwordNums = "0123456789";
+var passwordUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var passwordLower = "abcdefghijklmnopqrstuvwxyz";
+var passwordSpecial = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~ ";
 
 let promptLength = "";
 
@@ -111,7 +27,12 @@ function generatePassword() {
 
   // Enter the conditional for promptLength response - cannot be blank/null, at LEAST 8 characters and no more than 128 characters.
   promptLength = getLength();
-  if (!promptLength || promptLength < 8 || promptLength > 128) {
+  if (
+    !isNaN(promptLength) ||
+    !promptLength ||
+    promptLength < 8 ||
+    promptLength > 128
+  ) {
     // If invalid response is entered - trigger a warning and ask for re-entry.
 
     if (
@@ -208,7 +129,10 @@ function generatePassword() {
 
     // Check Answers Function to inform user they need to select at least one criteria.
   }
-  if (!confirmUpper && !confirmLower && !confirmNumbers && !confirmCharacters) {
+
+  if (
+    checkAnswers(confirmUpper, confirmLower, confirmNumbers, confirmCharacters)
+  ) {
     window.alert("You must choose at least one criteria for your password.");
     generatePassword();
   }
@@ -217,10 +141,13 @@ function generatePassword() {
   for (var i = 0; i < promptLength; i++) {
     password =
       password + passwordChar[Math.floor(Math.random() * passwordChar.length)];
-    console.log("made it through safely");
   }
   console.log(password);
   return password;
+}
+
+function checkAnswers(confirmUp, confirmLow, confirmNum, confirmChar) {
+  return !confirmUp && !confirmLow && !confirmNum && !confirmChar;
 }
 
 function writePassword() {
