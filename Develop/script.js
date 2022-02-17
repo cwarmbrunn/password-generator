@@ -6,7 +6,7 @@ var generateBtn = document.querySelector("#generate");
 var passwordNums = "0123456789";
 var passwordUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var passwordLower = "abcdefghijklmnopqrstuvwxyz";
-var passwordSpecial = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~ ";
+var passwordSpecial = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 
 let promptLength = "";
 
