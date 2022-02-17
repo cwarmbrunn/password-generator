@@ -104,7 +104,7 @@ function getLength() {
 // Password Criterion
 function generatePassword() {
   debugger;
-  var password = "";
+  var password = [];
   var passwordChar = "";
 
   // Password Length Criteria Start
@@ -149,7 +149,7 @@ function generatePassword() {
 
   // If yes, grant lowercase letter confirmation
   if (confirmLower) {
-    passwordChar += passwordLower;
+    passwordChar.push(passwordLower);
     window.alert("You selected lowercase characters for your password.");
   }
   // If no, alert denial of lowercase letter confirmation
@@ -164,7 +164,7 @@ function generatePassword() {
   );
   // If yes, grant uppercase letter confirmation
   if (confirmUpper) {
-    passwordChar += passwordUpper;
+    passwordChar.push(passwordUpper);
     window.alert("You selected uppercase characters in your password.");
   }
   // If no, alert denial of lowercase letter confirmation
@@ -179,7 +179,7 @@ function generatePassword() {
 
   // If yes, grant number letter confirmation
   if (confirmNumbers) {
-    passwordChar += passwordNums;
+    passwordChar.push(passwordNums);
     window.alert("You selected numbers in your password.");
   }
 
@@ -198,7 +198,7 @@ function generatePassword() {
 
   // If yes, grant special character confirmation
   if (confirmCharacters) {
-    passwordChar += passwordSpecial;
+    passwordChar.push(passwordSpecial);
     window.alert("You selected special characters in your password.");
   }
 
