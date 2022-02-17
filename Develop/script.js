@@ -7,15 +7,9 @@ var passwordUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var passwordNums = "0123456789";
 var passwordSpecial = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 
-let promptLength = "";
+let length = "";
 
 // Function to prompt user to input password character length
-function getLength() {
-  var localLength = window.prompt(
-    "Enter a password length range between 8 and 128 characters."
-  );
-  return parseInt(localLength);
-}
 
 // Password Generation Begin
 function generatePassword() {
@@ -24,33 +18,33 @@ function generatePassword() {
 
   // Password Length Prompt Starts
 
-  // Enter the conditional for promptLength response - cannot be blank/null, at LEAST 8 characters and no more than 128 characters.
-  promptLength = getLength();
-  if (
-    !isNaN(promptLength) ||
-    !promptLength ||
-    promptLength < 8 ||
-    promptLength > 128
-  ) {
-    // If invalid response is entered - trigger a warning and return null to begin password generation again
+  var length = parseInt(
+    prompt(
+      "How many characters would you like your password to have? Please pick between 8 and 128 characters."
+    )
+  );
 
-    if (
-      isNaN(promptLength) ||
-      !promptLength ||
-      promptLength < 8 ||
-      promptLength > 128
-    ) {
-      window.alert(
-        "You need to provide a password length range between 8 and 128 characters - please try again!"
-      );
-      return null;
-    }
+  // Conditional statement for password length - will check if it's a number
+
+  if (Number.isNaN(length)) {
+    window.alert("Please provide a number for your password length.");
+    return null;
+  }
+
+  if (length < 8) {
+    alert("Please provide a password length greater than 8 characters.");
+    return null;
+  }
+
+  if (length > 128) {
+    window.alert("Please provide a password length less than 128 characters.");
+    return null;
   }
 
   // Password Length Validation Start
 
   var confirmLength = window.confirm(
-    "Confirm your selection of " + promptLength + " characters."
+    "Confirm your selection of " + length + " characters."
   );
 
   // Password Length Validation Ends
@@ -121,7 +115,7 @@ function generatePassword() {
   }
 
   // Randomizer for Password
-  for (var i = 0; i < promptLength; i++) {
+  for (var i = 0; i < length; i++) {
     password =
       password + passwordChar[Math.floor(Math.random() * passwordChar.length)];
   }
