@@ -30,6 +30,8 @@ You can clone this repo - no special instructions to load this!
 
 ---
 
-**Screenshots:**
+**Screenshots/GIF:**
 
-![Screenshot](RELATIVE LINK GOES HERE)
+![Screenshot of Password Generator Site](./Develop/assets/images/pw-gen-site.jpg)
+
+![GIF of Password Generator Site](./Develop/assets/images/pw-gen-site-gif.gif)
