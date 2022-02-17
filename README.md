@@ -6,7 +6,7 @@ Password Generator
 
 **Project Description/Summary:**
 
-Creating a password generator application that an employee can use to generate a random password matching selected criteria.
+Creating a password generator application that an employee can use to generate a random password matching selected criteria ( 8 - 128 characters) and at least one password type used (upper or lowercase letters, numbers, or special characters).
 
 ---
 
