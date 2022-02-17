@@ -20,7 +20,7 @@ function getLength() {
 // Password Generation Begin
 function generatePassword() {
   var password = "";
-  var passwordChar = [];
+  var passwordChar = "";
 
   // Password Length Prompt Starts
 
@@ -28,7 +28,7 @@ function generatePassword() {
   promptLength = getLength();
   if (
     !isNaN(promptLength) ||
-    promptLength ||
+    !promptLength ||
     promptLength < 8 ||
     promptLength > 128
   ) {
@@ -67,7 +67,7 @@ function generatePassword() {
 
   // If yes, grant lowercase letter confirmation
   if (confirmLower) {
-    passwordChar.push(passwordLower);
+    passwordChar += passwordLower;
     window.alert("You selected lowercase characters for your password.");
   }
   // If no, alert denial of lowercase letter confirmation
@@ -82,7 +82,7 @@ function generatePassword() {
   );
   // If yes, grant uppercase letter confirmation
   if (confirmUpper) {
-    passwordChar.push(passwordUpper);
+    passwordChar += passwordUpper;
     window.alert("You selected uppercase characters in your password.");
   }
   // If no, alert denial of lowercase letter confirmation
@@ -97,7 +97,7 @@ function generatePassword() {
 
   // If yes, grant number letter confirmation
   if (confirmNumbers) {
-    passwordChar.push(passwordNums);
+    passwordChar += passwordNums;
     window.alert("You selected numbers in your password.");
   }
 
@@ -116,7 +116,7 @@ function generatePassword() {
 
   // If yes, grant special character confirmation
   if (confirmCharacters) {
-    passwordChar.push(passwordSpecial);
+    passwordChar += passwordSpecial;
     window.alert("You selected special characters in your password.");
   }
 
