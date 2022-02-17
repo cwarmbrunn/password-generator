@@ -104,8 +104,8 @@ function getLength() {
 // Password Criterion
 function generatePassword() {
   debugger;
-  var password = [];
-  var passwordChar = "";
+  var password = "";
+  var passwordChar = [];
 
   // Password Length Criteria Start
 
