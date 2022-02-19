@@ -1,12 +1,6 @@
 // Generate Password Button to Trigger Prompts
 var generateBtn = document.querySelector("#generate");
 
-/* Commenting Out for Future 
-
-Generate Copy Password Button to Trigger Copying
-
-var copyBtn = document.querySelector("#copy"); */
-
 // Global Scope Variables - Password Character Options
 var passwordLower = "abcdefghijklmnopqrstuvwxyz";
 var passwordUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -139,4 +133,23 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-copyBtn.addEventListener("click", copyPassword);
+// Function to copy generated password to clipboard
+
+function copy() {
+  //Get the text field
+  var copyText = document.getElementById("password");
+
+  // Select the text field
+  copyText.select();
+
+  // For Mobile Devices
+  copyText.setSelectionRange(0, 99999);
+
+  // Copy the text inside the text field
+
+  navigator.clipboard.writeText(copyText.value);
+
+  // Alert the Copied Text
+
+  alert("Copied the password to clipboard!");
+}
