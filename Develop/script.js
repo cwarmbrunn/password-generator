@@ -1,6 +1,12 @@
 // Generate Password Button to Trigger Prompts
 var generateBtn = document.querySelector("#generate");
 
+/* Commenting Out for Future 
+
+Generate Copy Password Button to Trigger Copying
+
+var copyBtn = document.querySelector("#copy"); */
+
 // Global Scope Variables - Password Character Options
 var passwordLower = "abcdefghijklmnopqrstuvwxyz";
 var passwordUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -28,7 +34,7 @@ function generatePassword() {
 
   if (Number.isNaN(length)) {
     window.alert("Please provide a number for your password length.");
-    return null;
+    return;
   }
 
   if (length < 8) {
@@ -132,3 +138,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+copyBtn.addEventListener("click", copyPassword);

@@ -73,6 +73,7 @@ header {
 }
 
 .btn {
+  outline: none;
   border: none;
   background-color: hsl(360, 91%, 36%);
   border-radius: 25px;
@@ -84,7 +85,9 @@ header {
   line-height: 22px;
   margin: 16px 16px 16px 20px;
   padding: 14px 34px;
+  top: -4px;
   text-align: center;
+  position: relative;
   cursor: pointer;
 }
 
@@ -93,6 +96,14 @@ button[disabled] {
   background: #c0c7cf;
 }
 
+.btn:hover {
+  box-shadow: 0 3px black;
+  top: -3px;
+}
+.btn:active {
+  box-shadow: 0 0px black;
+  top: 0;
+}
 .float-right {
   float: right;
 }
