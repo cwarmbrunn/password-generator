@@ -34,7 +34,7 @@ function generatePassword() {
 
   if (Number.isNaN(length)) {
     window.alert("Please provide a number for your password length.");
-    return;
+    return null;
   }
 
   if (length < 8) {
