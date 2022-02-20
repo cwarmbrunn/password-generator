@@ -133,6 +133,8 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+
+/* TEST  Copy Function 
 // Function to copy generated password to clipboard
 
 function copy() {
@@ -153,3 +155,4 @@ function copy() {
 
   alert("Copied the password to clipboard!");
 }
+*/
